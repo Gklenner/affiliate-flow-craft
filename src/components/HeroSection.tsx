@@ -8,6 +8,13 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ onStartClick, isLoading }) => {
+  const handleStartClick = () => {
+    // Primeiro abre o link de cadastro
+    window.open('https://grip.gaiodataos.com/?si=f722bc5f-c550-4368-a50f-d727e7abc368', '_blank');
+    // Depois executa a lógica do fluxo
+    onStartClick();
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 py-20">
       {/* Background Elements */}
@@ -96,7 +103,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onStartClick, isLoading }) =>
         {/* CTA Button */}
         <div className="animate-fade-in-up" style={{ animationDelay: '1s' }}>
           <button
-            onClick={onStartClick}
+            onClick={handleStartClick}
             disabled={isLoading}
             className={`
               btn-primary text-xl px-12 py-6 rounded-2xl
