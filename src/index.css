@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -28,11 +28,14 @@
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
     
-    /* Custom Landing Page Colors */
-    --lp-primary: 212 100% 32%; /* #0B3D91 - Azul escuro */
-    --lp-cta: 21 100% 50%; /* #FF6F00 - Laranja */
-    --lp-success: 142 76% 36%; /* #28A745 - Verde */
-    --lp-text-light: 0 0% 100%; /* Branco */
+    /* Modern Landing Page Colors */
+    --lp-navy: 220 25% 8%; /* #0A0E1A - Navy escuro */
+    --lp-blue: 220 100% 15%; /* #0052FF - Azul vibrante */
+    --lp-purple: 260 100% 65%; /* #8B5CF6 - Roxo moderno */
+    --lp-orange: 25 100% 58%; /* #FF8A00 - Laranja premium */
+    --lp-green: 142 71% 45%; /* #22C55E - Verde sucesso */
+    --lp-gray: 220 13% 18%; /* #1E293B - Cinza moderno */
+    --lp-light: 0 0% 98%; /* #FAFAFA - Branco suave */
   }
 
   * {
@@ -41,51 +44,172 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
   }
 }
 
 @layer utilities {
-  .bg-lp-primary {
-    background-color: hsl(var(--lp-primary));
+  /* Color Classes */
+  .bg-lp-navy { background-color: hsl(var(--lp-navy)); }
+  .bg-lp-blue { background-color: hsl(var(--lp-blue)); }
+  .bg-lp-purple { background-color: hsl(var(--lp-purple)); }
+  .bg-lp-orange { background-color: hsl(var(--lp-orange)); }
+  .bg-lp-green { background-color: hsl(var(--lp-green)); }
+  .bg-lp-gray { background-color: hsl(var(--lp-gray)); }
+  .text-lp-light { color: hsl(var(--lp-light)); }
+  .text-lp-blue { color: hsl(var(--lp-blue)); }
+  .text-lp-purple { color: hsl(var(--lp-purple)); }
+  .text-lp-orange { color: hsl(var(--lp-orange)); }
+  .text-lp-green { color: hsl(var(--lp-green)); }
+  .border-lp-blue { border-color: hsl(var(--lp-blue)); }
+  .border-lp-purple { border-color: hsl(var(--lp-purple)); }
+  
+  /* Modern Gradients */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--lp-blue)) 0%, hsl(var(--lp-purple)) 100%);
   }
   
-  .bg-lp-cta {
-    background-color: hsl(var(--lp-cta));
+  .gradient-secondary {
+    background: linear-gradient(135deg, hsl(var(--lp-orange)) 0%, hsl(var(--lp-green)) 100%);
   }
   
-  .bg-lp-success {
-    background-color: hsl(var(--lp-success));
-  }
-  
-  .text-lp-light {
-    color: hsl(var(--lp-text-light));
-  }
-  
-  .border-lp-cta {
-    border-color: hsl(var(--lp-cta));
-  }
-  
-  .animate-pulse-slow {
-    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-  
-  .animate-bounce-slow {
-    animation: bounce 2s infinite;
-  }
-  
-  .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--lp-cta)), hsl(var(--lp-success)));
+  .gradient-text-primary {
+    background: linear-gradient(135deg, hsl(var(--lp-blue)) 0%, hsl(var(--lp-purple)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+  
+  .gradient-text-secondary {
+    background: linear-gradient(135deg, hsl(var(--lp-orange)) 0%, hsl(var(--lp-green)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
+  
+  .glass-dark {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Modern Shadows */
+  .shadow-glow {
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.15);
+  }
+  
+  .shadow-glow-orange {
+    box-shadow: 0 0 40px rgba(255, 138, 0, 0.15);
+  }
+  
+  .shadow-modern {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Animations */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-fade-in-down {
+    animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .hover-glow {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+    transform: scale(1.02);
+  }
+
+  /* Button Styles */
+  .btn-modern {
+    @apply px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform;
+    @apply hover:scale-105 hover:shadow-lg active:scale-95;
+  }
+  
+  .btn-primary {
+    @apply btn-modern gradient-primary text-white shadow-glow;
+  }
+  
+  .btn-secondary {
+    @apply btn-modern gradient-secondary text-white shadow-glow-orange;
+  }
+  
+  .btn-outline {
+    @apply btn-modern bg-transparent border-2 border-lp-purple text-lp-purple;
+    @apply hover:bg-lp-purple hover:text-white;
+  }
+
+  /* Text Styles */
+  .text-hero {
+    @apply text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight;
+  }
+  
+  .text-subtitle {
+    @apply text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed;
+  }
+  
+  .text-body {
+    @apply text-base md:text-lg leading-relaxed;
+  }
 }
 
-@keyframes slideInUp {
+/* Keyframes */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -93,7 +217,18 @@
   }
 }
 
-@keyframes fadeInScale {
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
   from {
     opacity: 0;
     transform: scale(0.9);
@@ -104,10 +239,71 @@
   }
 }
 
-.animate-slide-up {
-  animation: slideInUp 0.6s ease-out forwards;
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
+  }
 }
 
-.animate-fade-scale {
-  animation: fadeInScale 0.5s ease-out forwards;
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+  .text-hero {
+    @apply text-4xl leading-tight;
+  }
+  
+  .text-subtitle {
+    @apply text-lg;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--lp-navy));
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, hsl(var(--lp-blue)), hsl(var(--lp-purple)));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, hsl(var(--lp-purple)), hsl(var(--lp-blue)));
 }
