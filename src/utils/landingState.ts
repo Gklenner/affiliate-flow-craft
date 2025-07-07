@@ -83,7 +83,8 @@ class LandingStateManager {
       this.progress.completedSteps.push(stepId);
     }
     
-    this.progress.currentStep = Math.min(stepId + 1, 4);
+    // Avança para próxima etapa automaticamente
+    this.progress.currentStep = Math.min(stepId + 1, this.steps.length - 1);
     this.updateStepsState();
     this.saveProgress();
   }

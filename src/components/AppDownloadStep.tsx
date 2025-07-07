@@ -40,19 +40,19 @@ const AppDownloadStep: React.FC<AppDownloadStepProps> = ({
         <button
           onClick={() => onDownload('android')}
           disabled={isLoading}
-          className="flex items-center justify-center px-8 py-4 bg-green-600 text-white text-lg font-bold rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 shadow-lg"
+          className="flex items-center justify-center px-8 py-4 bg-green-600 text-white text-lg font-bold rounded-lg hover:bg-green-700 transition-all duration-300 disabled:opacity-50 shadow-lg hover:scale-105 active:scale-95"
         >
           <span className="mr-3 text-2xl">📱</span>
-          Baixar para Android
+          {isLoading ? 'Processando...' : 'Baixar para Android'}
         </button>
         
         <button
           onClick={() => onDownload('ios')}
           disabled={isLoading}
-          className="flex items-center justify-center px-8 py-4 bg-gray-800 text-white text-lg font-bold rounded-lg hover:bg-gray-900 transition-colors disabled:opacity-50 shadow-lg"
+          className="flex items-center justify-center px-8 py-4 bg-gray-800 text-white text-lg font-bold rounded-lg hover:bg-gray-900 transition-all duration-300 disabled:opacity-50 shadow-lg hover:scale-105 active:scale-95"
         >
           <span className="mr-3 text-2xl">🍎</span>
-          Baixar para iOS
+          {isLoading ? 'Processando...' : 'Baixar para iOS'}
         </button>
       </div>
 

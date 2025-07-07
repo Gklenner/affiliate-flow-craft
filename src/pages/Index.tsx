@@ -6,6 +6,8 @@ import { FeedbackUtils, AnimationManager } from '../utils/animations';
 import ProgressBar from '../components/ProgressBar';
 import HeroSection from '../components/HeroSection';
 import StepContent from '../components/StepContent';
+import NeuroMarketingEngine from '../components/NeuroMarketingEngine';
+import AdvancedPersuasionSystem from '../components/AdvancedPersuasionSystem';
 
 const Index: React.FC = () => {
   const [progress, setProgress] = useState<UserProgress>({
@@ -16,6 +18,11 @@ const Index: React.FC = () => {
   });
   const [steps, setSteps] = useState<StepState[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [userProfile] = useState({
+    decisionStyle: 'intuitive' as const,
+    riskTolerance: 'medium' as const,
+    motivationType: 'gain' as const
+  });
 
   const stateManager = LandingStateManager.getInstance();
 
@@ -55,6 +62,15 @@ const Index: React.FC = () => {
     stateManager.reset();
   };
 
+  const handleNeuroTrigger = (action: string, data?: any) => {
+    console.log('🧠 Neuro Trigger:', action, data);
+    // Implementar lógica de otimização baseada em neurociência
+  };
+
+  const handleConversionOptimization = (trigger: string) => {
+    console.log('🎯 Conversion Trigger:', trigger);
+    // Implementar otimização de conversão em tempo real
+  };
   return (
     <div className="min-h-screen bg-lp-navy overflow-hidden">
       {/* Modern Background */}
@@ -161,6 +177,15 @@ const Index: React.FC = () => {
           </div>
         </footer>
       </div>
+
+      {/* 🧠 SISTEMA NEUROMARKETING AVANÇADO */}
+      <NeuroMarketingEngine onTriggerAction={handleNeuroTrigger} />
+      
+      {/* 🎯 SISTEMA DE PERSUASÃO CIENTÍFICA */}
+      <AdvancedPersuasionSystem 
+        userProfile={userProfile}
+        onConversionTrigger={handleConversionOptimization}
+      />
     </div>
   );
 };

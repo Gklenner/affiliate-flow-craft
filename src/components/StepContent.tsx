@@ -25,13 +25,20 @@ const StepContent: React.FC<StepContentProps> = ({ progress, onStepComplete }) =
     setIsLoading(true);
     setFeedbackMessage('📱 Redirecionando para a loja...');
     
-    // Simula redirecionamento
+    // Abre a loja imediatamente
+    window.open(downloadLinks[platform], '_blank');
+    
+    // Simula tempo de download e avança automaticamente
     setTimeout(() => {
-      window.open(downloadLinks[platform], '_blank');
-      setFeedbackMessage('✅ Download iniciado! Complete a instalação e volte aqui.');
-      onStepComplete(2);
-      setIsLoading(false);
-    }, 1500);
+      setFeedbackMessage('✅ Download iniciado! Aguarde enquanto verificamos a instalação...');
+      
+      // Avança para próxima etapa após simular instalação
+      setTimeout(() => {
+        setFeedbackMessage('🎉 App instalado com sucesso! Avançando para verificação...');
+        onStepComplete(2);
+        setIsLoading(false);
+      }, 2000);
+    }, 1000);
   };
 
   const handleVerification = async () => {
