@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Star, Users, Zap, TrendingUp } from 'lucide-react';
 
@@ -29,29 +28,28 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onStartClick, isLoading }) =>
         <div className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 mb-8 animate-fade-in-down">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-lp-green rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-lp-light/90">+2.847 afiliados ativos</span>
+            <span className="text-sm font-medium text-lp-light/90">+3.247 afiliados faturando</span>
           </div>
           <div className="w-px h-4 bg-white/20"></div>
           <div className="flex items-center gap-2">
             <TrendingUp className="w-4 h-4 text-lp-green" />
-            <span className="text-sm font-medium text-lp-light/90">R$ 847k pagos em 30 dias</span>
+            <span className="text-sm font-medium text-lp-light/90">R$ 1.2M pagos em 30 dias</span>
           </div>
         </div>
 
         {/* Main Headline */}
         <h1 className="text-hero text-lp-light mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-          Quer ganhar{' '}
-          <span className="gradient-text-secondary">renda recorrente</span>{' '}
-          indicando uma IA que{' '}
-          <span className="gradient-text-primary">grandes empresas já usam</span>{' '}
-          e milhares ainda precisam?
+          Descubra o{' '}
+          <span className="gradient-text-secondary">Sistema Secreto</span>{' '}
+          que está gerando{' '}
+          <span className="gradient-text-primary">R$ 15.000/mês</span>{' '}
+          para afiliados inteligentes
         </h1>
 
         {/* Subtitle */}
         <p className="text-subtitle text-lp-light/80 mb-12 max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-          Descubra o sistema que já está gerando{' '}
-          <span className="gradient-text-secondary font-bold">comissões de até R$ 15.000/mês</span>{' '}
-          para afiliados inteligentes. Sem venda direta, sem complicação.
+          Acesse o <span className="gradient-text-secondary font-bold">ecossistema completo</span> com IA, CRM, chatbot e material estratégico que os{' '}
+          <span className="gradient-text-primary font-bold">top afiliados usam</span> para dominar o mercado
         </p>
 
         {/* Social Proof Cards */}
@@ -60,8 +58,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onStartClick, isLoading }) =>
             <div className="flex items-center justify-center w-12 h-12 gradient-primary rounded-xl mb-4 mx-auto">
               <Users className="w-6 h-6 text-white" />
             </div>
-            <div className="text-2xl font-bold text-lp-light mb-2">2.847</div>
-            <div className="text-sm text-lp-light/70">Afiliados Ativos</div>
+            <div className="text-2xl font-bold text-lp-light mb-2">3.247</div>
+            <div className="text-sm text-lp-light/70">Afiliados Premium</div>
           </div>
           
           <div className="glass-dark rounded-2xl p-6 hover-lift" style={{ animationDelay: '0.1s' }}>
@@ -69,7 +67,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onStartClick, isLoading }) =>
               <Star className="w-6 h-6 text-white" />
             </div>
             <div className="text-2xl font-bold text-lp-light mb-2">4.9/5</div>
-            <div className="text-sm text-lp-light/70">Avaliação Média</div>
+            <div className="text-sm text-lp-light/70">Satisfação Comprovada</div>
           </div>
           
           <div className="glass-dark rounded-2xl p-6 hover-lift" style={{ animationDelay: '0.2s' }}>
@@ -77,18 +75,31 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onStartClick, isLoading }) =>
               <Zap className="w-6 h-6 text-white" />
             </div>
             <div className="text-2xl font-bold text-lp-light mb-2">24h</div>
-            <div className="text-sm text-lp-light/70">Aprovação Instantânea</div>
+            <div className="text-sm text-lp-light/70">Para Primeiros Resultados</div>
           </div>
         </div>
 
+        {/* Urgency Alert */}
+        <div className="bg-gradient-to-r from-red-500/20 to-orange-500/20 border border-red-500/30 rounded-2xl p-6 mb-12 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+            <span className="text-red-300 font-bold text-lg">⚠️ ATENÇÃO: VAGAS LIMITADAS</span>
+            <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+          </div>
+          <p className="text-white/90 text-lg">
+            Apenas <span className="text-red-300 font-bold">47 vagas restantes</span> para acessar o sistema completo com{' '}
+            <span className="text-orange-300 font-bold">material estratégico exclusivo</span> dos top afiliados
+          </p>
+        </div>
+
         {/* Live Activity */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 animate-fade-in-up" style={{ animationDelay: '1s' }}>
           <div className="flex items-center gap-3 glass rounded-full px-6 py-3">
             <div className="relative">
               <div className="w-3 h-3 bg-lp-green rounded-full"></div>
               <div className="absolute inset-0 w-3 h-3 bg-lp-green rounded-full animate-ping opacity-75"></div>
             </div>
-            <span className="text-sm font-medium text-lp-light/90">1.247 pessoas online agora</span>
+            <span className="text-sm font-medium text-lp-light/90">1.847 pessoas acessando agora</span>
           </div>
           
           <div className="flex items-center gap-3 glass rounded-full px-6 py-3">
@@ -96,12 +107,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onStartClick, isLoading }) =>
               <div className="w-3 h-3 bg-lp-orange rounded-full"></div>
               <div className="absolute inset-0 w-3 h-3 bg-lp-orange rounded-full animate-ping opacity-75"></div>
             </div>
-            <span className="text-sm font-medium text-lp-light/90">Últimos 3 links gerados há 47 seg</span>
+            <span className="text-sm font-medium text-lp-light/90">Último acesso há 12 segundos</span>
           </div>
         </div>
 
         {/* CTA Button */}
-        <div className="animate-fade-in-up" style={{ animationDelay: '1s' }}>
+        <div className="animate-fade-in-up" style={{ animationDelay: '1.2s' }}>
           <button
             onClick={handleStartClick}
             disabled={isLoading}
@@ -116,12 +127,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onStartClick, isLoading }) =>
             {isLoading ? (
               <span className="flex items-center gap-3">
                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                Gerando seu link exclusivo...
+                Preparando seu acesso exclusivo...
               </span>
             ) : (
               <span className="flex items-center gap-3">
                 <Zap className="w-6 h-6" />
-                Quero Meu Link de Cadastro AGORA
+                QUERO ACESSO AO SISTEMA COMPLETO
               </span>
             )}
           </button>
@@ -131,20 +142,29 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onStartClick, isLoading }) =>
               <div className="w-4 h-4 gradient-primary rounded-full flex items-center justify-center">
                 <div className="w-2 h-2 bg-white rounded-full"></div>
               </div>
-              <span>Processo 100% automatizado</span>
+              <span>Acesso imediato ao ecossistema</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 gradient-secondary rounded-full flex items-center justify-center">
                 <div className="w-2 h-2 bg-white rounded-full"></div>
               </div>
-              <span>Totalmente seguro</span>
+              <span>Material estratégico incluído</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 gradient-primary rounded-full flex items-center justify-center">
                 <div className="w-2 h-2 bg-white rounded-full"></div>
               </div>
-              <span>Sem investimento inicial</span>
+              <span>Suporte especializado 24/7</span>
             </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-lp-light/50 text-sm mb-2">
+              ⏰ Após o cadastro, você receberá acesso ao app premium
+            </p>
+            <p className="text-orange-300 text-sm font-medium">
+              🎁 + Bônus exclusivo: Estratégias dos afiliados que faturam R$ 50k+/mês
+            </p>
           </div>
         </div>
       </div>

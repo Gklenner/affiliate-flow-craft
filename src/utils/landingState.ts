@@ -37,11 +37,11 @@ class LandingStateManager {
         };
 
     this.steps = [
-      { id: 0, completed: false, active: true, title: 'Início', description: 'Clique para começar' },
-      { id: 1, completed: false, active: false, title: 'Link Gerado', description: 'Seu link foi criado' },
-      { id: 2, completed: false, active: false, title: 'App Baixado', description: 'Download realizado' },
-      { id: 3, completed: false, active: false, title: 'Acesso Verificado', description: 'Conta validada' },
-      { id: 4, completed: false, active: false, title: 'Material Liberado', description: 'Pronto para faturar!' }
+      { id: 0, completed: false, active: true, title: 'Acesso ao Sistema', description: 'Cadastro na plataforma' },
+      { id: 1, completed: false, active: false, title: 'Cadastro Confirmado', description: 'Conta criada com sucesso' },
+      { id: 2, completed: false, active: false, title: 'App Instalado', description: 'Ecossistema acessível' },
+      { id: 3, completed: false, active: false, title: 'Verificação Completa', description: 'Acesso premium liberado' },
+      { id: 4, completed: false, active: false, title: 'Material Premium', description: 'Estratégias desbloqueadas!' }
     ];
 
     this.updateStepsState();
