@@ -1,8 +1,7 @@
-
 import { UserProgress, StepState, StepStatus } from '../types/landing';
 
 /**
- * Singleton para gerenciar estado da landing page
+ * Singleton para gerenciar estado da landing page IA Empresarial
  * Otimizado para performance de memória
  */
 class LandingStateManager {
@@ -25,7 +24,7 @@ class LandingStateManager {
 
   private initializeState(): void {
     // Recupera estado do localStorage ou inicializa
-    const savedProgress = localStorage.getItem('landing_progress');
+    const savedProgress = localStorage.getItem('grip_ia_progress');
     
     this.progress = savedProgress 
       ? JSON.parse(savedProgress)
@@ -37,11 +36,11 @@ class LandingStateManager {
         };
 
     this.steps = [
-      { id: 0, completed: false, active: true, title: 'Acesso ao Sistema', description: 'Cadastro na plataforma' },
-      { id: 1, completed: false, active: false, title: 'Cadastro Confirmado', description: 'Conta criada com sucesso' },
-      { id: 2, completed: false, active: false, title: 'App Instalado', description: 'Ecossistema acessível' },
-      { id: 3, completed: false, active: false, title: 'Verificação Completa', description: 'Acesso premium liberado' },
-      { id: 4, completed: false, active: false, title: 'Material Premium', description: 'Estratégias desbloqueadas!' }
+      { id: 0, completed: false, active: true, title: 'Acesso ao GRIP', description: 'Sistema IA para empresas' },
+      { id: 1, completed: false, active: false, title: 'GRIP Ativado', description: 'Plataforma IA liberada' },
+      { id: 2, completed: false, active: false, title: 'App Instalado', description: 'Sistema empresarial acessível' },
+      { id: 3, completed: false, active: false, title: 'Verificação Completa', description: 'Materiais IA liberados' },
+      { id: 4, completed: false, active: false, title: 'Renda Recorrente', description: 'Indicando IA para empresas!' }
     ];
 
     this.updateStepsState();
@@ -57,7 +56,7 @@ class LandingStateManager {
   }
 
   private saveProgress(): void {
-    localStorage.setItem('landing_progress', JSON.stringify(this.progress));
+    localStorage.setItem('grip_ia_progress', JSON.stringify(this.progress));
     this.notifyListeners();
   }
 
@@ -105,7 +104,7 @@ class LandingStateManager {
   }
 
   public reset(): void {
-    localStorage.removeItem('landing_progress');
+    localStorage.removeItem('grip_ia_progress');
     this.initializeState();
     this.notifyListeners();
   }

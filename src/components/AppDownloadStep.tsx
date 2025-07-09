@@ -1,5 +1,5 @@
 import React from 'react';
-import { Smartphone, Download, CheckCircle, Star } from 'lucide-react';
+import { Smartphone, Download, CheckCircle, Star, Brain, Building2 } from 'lucide-react';
 import FeedbackMessage from './FeedbackMessage';
 
 interface AppDownloadStepProps {
@@ -17,44 +17,66 @@ const AppDownloadStep: React.FC<AppDownloadStepProps> = ({
     <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 animate-slide-up max-w-4xl mx-auto">
       <div className="text-center mb-8">
         <div className="w-20 h-20 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
-          <Smartphone className="w-10 h-10 text-white" />
+          <Brain className="w-10 h-10 text-white" />
         </div>
         <h2 className="text-4xl font-bold text-lp-light mb-4">
-          📱 Baixe o App AffiliateFlow Pro
+          📱 Baixe o App GRIP - IA para Empresas
         </h2>
         <p className="text-xl text-white/80 mb-6">
-          Seu acesso ao <span className="text-lp-orange font-bold">ecossistema completo</span> está a um clique de distância!
+          Acesse o <span className="text-lp-orange font-bold">sistema completo de IA empresarial</span> e comece a indicar para empresas!
         </p>
       </div>
 
-      {/* App Features */}
+      {/* App Features for IA Business */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-lg p-6">
           <h3 className="text-xl font-bold text-lp-light mb-4 flex items-center gap-2">
-            <CheckCircle className="w-6 h-6 text-lp-green" />
-            🚀 Recursos Premium
+            <Brain className="w-6 h-6 text-lp-blue" />
+            🤖 Sistema GRIP Premium
           </h3>
           <ul className="text-white/90 space-y-2 text-sm">
-            <li>✅ IA integrada para automação de vendas</li>
-            <li>✅ CRM completo para gestão de leads</li>
-            <li>✅ Chatbot inteligente 24/7</li>
-            <li>✅ Dashboard de performance em tempo real</li>
-            <li>✅ Notificações de vendas instantâneas</li>
+            <li>✅ Plataforma de IA para empresas</li>
+            <li>✅ Chatbots inteligentes personalizáveis</li>
+            <li>✅ CRM com automação avançada</li>
+            <li>✅ Dashboard de performance empresarial</li>
+            <li>✅ Integração WhatsApp Business</li>
           </ul>
         </div>
 
         <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 border border-orange-500/30 rounded-lg p-6">
           <h3 className="text-xl font-bold text-lp-light mb-4 flex items-center gap-2">
-            <Star className="w-6 h-6 text-lp-orange" />
-            🎁 Bônus Exclusivos
+            <Building2 className="w-6 h-6 text-lp-orange" />
+            🎁 Materiais IA Empresarial Exclusivos
           </h3>
           <ul className="text-white/90 space-y-2 text-sm">
-            <li>📚 +500 templates de alta conversão</li>
-            <li>🎬 Masterclass exclusiva dos top 1%</li>
-            <li>📈 Scripts que convertem 10x mais</li>
-            <li>🤖 Automações prontas para usar</li>
-            <li>💎 Acesso à comunidade VIP</li>
+            <li>📚 Scripts para indicar IA para empresas</li>
+            <li>🎬 Cases de sucesso empresariais</li>
+            <li>📈 Templates de propostas comerciais</li>
+            <li>🤖 Demonstrações de IA prontas</li>
+            <li>💎 Estratégias de abordagem B2B</li>
           </ul>
+        </div>
+      </div>
+
+      {/* Revenue Model */}
+      <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-500/30 rounded-lg p-6 mb-8">
+        <h3 className="text-xl font-bold text-lp-light mb-4 text-center">💰 Modelo de Renda Recorrente:</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-green-300 mb-2">R$ 15k</div>
+            <div className="text-green-200 font-semibold mb-1">Plano Básico</div>
+            <div className="text-white/70 text-sm">Empresa paga R$ 500/mês</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-blue-300 mb-2">R$ 25k</div>
+            <div className="text-blue-200 font-semibold mb-1">Plano Pro</div>
+            <div className="text-white/70 text-sm">Empresa paga R$ 1.500/mês</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-orange-300 mb-2">R$ 55k</div>
+            <div className="text-orange-200 font-semibold mb-1">Plano Enterprise</div>
+            <div className="text-white/70 text-sm">Empresa paga R$ 5.000+/mês</div>
+          </div>
         </div>
       </div>
 
@@ -68,11 +90,11 @@ const AppDownloadStep: React.FC<AppDownloadStepProps> = ({
           <div className="flex items-center gap-3">
             <Download className="w-6 h-6" />
             <div className="text-left">
-              <div className="text-sm opacity-90">Baixar para</div>
+              <div className="text-sm opacity-90">Baixar GRIP para</div>
               <div className="text-lg font-bold">Android</div>
             </div>
           </div>
-          <div className="text-3xl">📱</div>
+          <div className="text-3xl">🤖</div>
         </button>
         
         <button
@@ -83,11 +105,11 @@ const AppDownloadStep: React.FC<AppDownloadStepProps> = ({
           <div className="flex items-center gap-3">
             <Download className="w-6 h-6" />
             <div className="text-left">
-              <div className="text-sm opacity-90">Baixar para</div>
+              <div className="text-sm opacity-90">Baixar GRIP para</div>
               <div className="text-lg font-bold">iPhone</div>
             </div>
           </div>
-          <div className="text-3xl">🍎</div>
+          <div className="text-3xl">🤖</div>
         </button>
       </div>
 
@@ -96,7 +118,7 @@ const AppDownloadStep: React.FC<AppDownloadStepProps> = ({
         <div className="flex items-center justify-center gap-3 text-green-300">
           <CheckCircle className="w-5 h-5" />
           <span className="text-sm font-medium">
-            🔒 App verificado e seguro • Mais de 1 milhão de downloads
+            🔒 Sistema GRIP verificado • Usado por +2.847 empresas
           </span>
         </div>
       </div>
@@ -107,15 +129,15 @@ const AppDownloadStep: React.FC<AppDownloadStepProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
           <div className="flex items-center gap-2 text-blue-300">
             <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xs">1</div>
-            <span>Baixe e instale o app</span>
+            <span>Baixe o app GRIP</span>
           </div>
           <div className="flex items-center gap-2 text-blue-300">
             <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xs">2</div>
-            <span>Faça login com seus dados</span>
+            <span>Acesse materiais IA empresarial</span>
           </div>
           <div className="flex items-center gap-2 text-blue-300">
             <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xs">3</div>
-            <span>Acesse todo o conteúdo</span>
+            <span>Comece a indicar para empresas</span>
           </div>
         </div>
       </div>

@@ -35,11 +35,11 @@ const Index: React.FC = () => {
   const handleStartClick = async () => {
     setIsLoading(true);
     
-    // Simula geração do link com mais realismo
+    // Simula processo de acesso ao sistema GRIP
     await new Promise(resolve => setTimeout(resolve, 2500));
     
-    // Gera link de afiliado
-    const affiliateLink = FeedbackUtils.generateAffiliateLink();
+    // Gera link do GRIP para empresas
+    const affiliateLink = 'https://grip.gaiodataos.com/?si=f722bc5f-c550-4368-a50f-d727e7abc368&ref=ia-empresas';
     stateManager.setAffiliateLink(affiliateLink);
     stateManager.completeStep(0);
     
@@ -83,22 +83,22 @@ const Index: React.FC = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">AF</span>
+                  <span className="text-white font-bold text-lg">🤖</span>
                 </div>
                 <div>
-                  <div className="text-lp-light font-bold text-xl">AffiliateFlow</div>
-                  <div className="text-lp-light/60 text-xs">Premium System</div>
+                  <div className="text-lp-light font-bold text-xl">GRIP IA Empresarial</div>
+                  <div className="text-lp-light/60 text-xs">Renda Recorrente</div>
                 </div>
               </div>
               
               <div className="hidden md:flex items-center gap-6">
                 <div className="flex items-center gap-2 text-lp-light/70 text-sm">
                   <div className="w-2 h-2 bg-lp-green rounded-full animate-pulse"></div>
-                  <span>Sistema Ativo</span>
+                  <span>2.847 empresas ativas</span>
                 </div>
                 <div className="flex items-center gap-2 text-lp-light/70 text-sm">
                   <div className="w-2 h-2 bg-lp-orange rounded-full animate-pulse"></div>
-                  <span>Suporte 24/7</span>
+                  <span>R$ 3.2M em comissões</span>
                 </div>
               </div>
             </div>
@@ -136,11 +136,11 @@ const Index: React.FC = () => {
           <div className="container mx-auto px-4 py-12">
             <div className="text-center">
               <div className="flex flex-col sm:flex-row justify-center items-center gap-6 text-lp-light/60 text-sm mb-8">
-                <span>© 2024 AffiliateFlow Premium</span>
+                <span>© 2024 GRIP IA Empresarial</span>
                 <div className="hidden sm:block w-px h-4 bg-white/20"></div>
-                <span>Tecnologia de Ponta</span>
+                <span>Renda Recorrente Indicando IA</span>
                 <div className="hidden sm:block w-px h-4 bg-white/20"></div>
-                <span>Suporte Especializado 24/7</span>
+                <span>Suporte B2B Especializado</span>
                 <div className="hidden sm:block w-px h-4 bg-white/20"></div>
                 <button 
                   onClick={resetProgress}
@@ -152,8 +152,8 @@ const Index: React.FC = () => {
               
               <div className="glass-dark rounded-2xl p-6 max-w-2xl mx-auto">
                 <div className="text-xs text-lp-light/40 leading-relaxed">
-                  Sistema desenvolvido com tecnologia de ponta para máxima conversão e performance.
-                  Integração futura preparada para n8n, MailerLite, pixels de conversão e tracking avançado.
+                  Sistema GRIP desenvolvido para empresas que precisam de IA. 
+                  Modelo de renda recorrente para indicadores especializados em soluções empresariais.
                 </div>
               </div>
             </div>
