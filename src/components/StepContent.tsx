@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { UserProgress, AppDownloadLinks } from '../types/landing';
 import { FeedbackUtils } from '../utils/animations';
@@ -17,8 +16,8 @@ const StepContent: React.FC<StepContentProps> = ({ progress, onStepComplete }) =
   const [feedbackMessage, setFeedbackMessage] = useState('');
 
   const downloadLinks: AppDownloadLinks = {
-    android: 'https://play.google.com/store/apps/details?id=com.exemplo.app',
-    ios: 'https://apps.apple.com/app/exemplo-app/id123456789'
+    android: 'https://play.google.com/store/apps/details?id=com.affiliateflow.app',
+    ios: 'https://apps.apple.com/app/affiliateflow-pro/id123456789'
   };
 
   const handleAppDownload = async (platform: 'android' | 'ios') => {
@@ -28,49 +27,75 @@ const StepContent: React.FC<StepContentProps> = ({ progress, onStepComplete }) =
     // Abre a loja imediatamente
     window.open(downloadLinks[platform], '_blank');
     
-    // Simula tempo de download e avança automaticamente
+    // Simula processo de download mais realista
     setTimeout(() => {
-      setFeedbackMessage('✅ Download iniciado! Aguarde enquanto verificamos a instalação...');
+      setFeedbackMessage('✅ Download iniciado! Aguarde a instalação...');
       
-      // Avança para próxima etapa após simular instalação
+      // Simula instalação
       setTimeout(() => {
-        setFeedbackMessage('🎉 App instalado com sucesso! Avançando para verificação...');
-        onStepComplete(2);
-        setIsLoading(false);
-      }, 2000);
+        setFeedbackMessage('🎉 App instalado com sucesso! Verificando configuração...');
+        
+        // Avança para próxima etapa
+        setTimeout(() => {
+          setFeedbackMessage('🚀 Configuração completa! Avançando para verificação...');
+          onStepComplete(2);
+          setIsLoading(false);
+          setFeedbackMessage('');
+        }, 1500);
+      }, 2500);
     }, 1000);
   };
 
   const handleVerification = async () => {
     setIsLoading(true);
-    setFeedbackMessage('🔄 Verificando seu acesso...');
+    setFeedbackMessage('🔄 Iniciando verificação de segurança...');
     
-    // Simula verificação
+    // Simula processo de verificação em etapas
     setTimeout(() => {
-      setFeedbackMessage('✅ Acesso validado com sucesso!');
-      onStepComplete(3);
-      setIsLoading(false);
-    }, 3000);
+      setFeedbackMessage('🔍 Verificando instalação do app...');
+      
+      setTimeout(() => {
+        setFeedbackMessage('🔐 Validando credenciais de acesso...');
+        
+        setTimeout(() => {
+          setFeedbackMessage('⚡ Liberando acesso premium...');
+          
+          setTimeout(() => {
+            setFeedbackMessage('✅ Verificação concluída! Acesso premium liberado!');
+            onStepComplete(3);
+            setIsLoading(false);
+          }, 1000);
+        }, 1500);
+      }, 1500);
+    }, 1000);
   };
 
   const handleEmailSend = async () => {
     setIsLoading(true);
-    setFeedbackMessage('📧 Enviando material para seu e-mail...');
+    setFeedbackMessage('📧 Preparando material estratégico...');
     
-    // Simula envio de email
+    // Simula envio de email mais detalhado
     setTimeout(() => {
-      setFeedbackMessage('✅ Material enviado! Confira sua caixa de entrada.');
-      setIsLoading(false);
-    }, 2000);
+      setFeedbackMessage('📦 Compilando +1.000 materiais premium...');
+      
+      setTimeout(() => {
+        setFeedbackMessage('🚀 Enviando para seu e-mail...');
+        
+        setTimeout(() => {
+          setFeedbackMessage('✅ Material enviado! Confira sua caixa de entrada e spam.');
+          setIsLoading(false);
+        }, 1500);
+      }, 2000);
+    }, 1000);
   };
 
   const handleCopyLink = async () => {
     const success = await FeedbackUtils.copyToClipboard(progress.affiliateLink);
     if (success) {
-      setFeedbackMessage('🔗 Link copiado! Cole onde quiser para começar a ganhar.');
+      setFeedbackMessage('🔗 Link copiado! Cole onde quiser para começar a ganhar comissões.');
       onStepComplete(4);
     } else {
-      setFeedbackMessage('❌ Erro ao copiar. Tente novamente.');
+      setFeedbackMessage('❌ Erro ao copiar. Tente selecionar e copiar manualmente.');
     }
   };
 
@@ -114,7 +139,7 @@ const StepContent: React.FC<StepContentProps> = ({ progress, onStepComplete }) =
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       {renderStepContent()}
     </div>
   );

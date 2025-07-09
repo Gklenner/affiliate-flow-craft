@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { StepState } from '../types/landing';
-import { CheckCircle, Circle, Clock } from 'lucide-react';
+import { CheckCircle, Circle, Clock, Star } from 'lucide-react';
 
 interface ProgressBarProps {
   steps: StepState[];
@@ -30,7 +29,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ steps, currentStep, completed
       
       {/* Progress Bar */}
       <div className="relative mb-12">
-        <div className="w-full h-3 bg-lp-gray/30 rounded-full overflow-hidden">
+        <div className="w-full h-4 bg-lp-gray/30 rounded-full overflow-hidden">
           <div 
             className="h-full gradient-secondary rounded-full transition-all duration-1000 ease-out shadow-glow-orange"
             style={{ width: `${progressPercentage}%` }}
@@ -39,10 +38,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ steps, currentStep, completed
         
         {/* Progress Indicator */}
         <div 
-          className="absolute top-1/2 transform -translate-y-1/2 w-6 h-6 gradient-secondary rounded-full shadow-glow-orange transition-all duration-1000 ease-out"
-          style={{ left: `calc(${progressPercentage}% - 12px)` }}
+          className="absolute top-1/2 transform -translate-y-1/2 w-8 h-8 gradient-secondary rounded-full shadow-glow-orange transition-all duration-1000 ease-out flex items-center justify-center"
+          style={{ left: `calc(${progressPercentage}% - 16px)` }}
         >
-          <div className="w-2 h-2 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="w-3 h-3 bg-white rounded-full"></div>
         </div>
       </div>
 
@@ -57,7 +56,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ steps, currentStep, completed
             <div
               key={step.id}
               className={`
-                relative group glass-dark rounded-2xl p-6 transition-all duration-500
+                relative group glass-dark rounded-2xl p-6 transition-all duration-500 hover:scale-105
                 ${isCompleted 
                   ? 'bg-gradient-to-br from-lp-green/20 to-lp-green/10 border-lp-green/30 shadow-glow' 
                   : isActive 
@@ -69,26 +68,26 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ steps, currentStep, completed
               {/* Step Number/Icon */}
               <div className="flex items-center gap-4 mb-4">
                 <div className={`
-                  w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg
+                  w-14 h-14 rounded-xl flex items-center justify-center font-bold text-lg transition-all duration-300
                   ${isCompleted 
-                    ? 'bg-lp-green text-white' 
+                    ? 'bg-lp-green text-white shadow-lg' 
                     : isActive 
-                      ? 'gradient-primary text-white'
+                      ? 'gradient-primary text-white shadow-lg'
                       : 'bg-lp-gray text-lp-light/60'
                   }
                 `}>
                   {isCompleted ? (
-                    <CheckCircle className="w-6 h-6" />
+                    <CheckCircle className="w-7 h-7" />
                   ) : isActive ? (
-                    <Clock className="w-6 h-6 animate-spin" />
+                    <Clock className="w-7 h-7 animate-spin" />
                   ) : (
-                    <Circle className="w-6 h-6" />
+                    <Circle className="w-7 h-7" />
                   )}
                 </div>
                 
                 <div className="flex-1">
                   <div className={`
-                    font-bold text-lg mb-1
+                    font-bold text-lg mb-1 transition-all duration-300
                     ${isCompleted 
                       ? 'text-lp-green' 
                       : isActive 
@@ -99,7 +98,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ steps, currentStep, completed
                     {step.title}
                   </div>
                   <div className={`
-                    text-sm leading-relaxed
+                    text-sm leading-relaxed transition-all duration-300
                     ${isCompleted 
                       ? 'text-lp-light/90' 
                       : isActive 
@@ -114,8 +113,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ steps, currentStep, completed
 
               {/* Completion Badge */}
               {isCompleted && (
-                <div className="absolute -top-3 -right-3 w-8 h-8 bg-lp-green rounded-full flex items-center justify-center shadow-lg animate-scale-in">
-                  <CheckCircle className="w-5 h-5 text-white" />
+                <div className="absolute -top-3 -right-3 w-10 h-10 bg-lp-green rounded-full flex items-center justify-center shadow-lg animate-scale-in">
+                  <CheckCircle className="w-6 h-6 text-white" />
                 </div>
               )}
 
@@ -123,6 +122,21 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ steps, currentStep, completed
               {isActive && !isCompleted && (
                 <div className="absolute inset-0 rounded-2xl border-2 border-lp-blue/50 pointer-events-none animate-pulse"></div>
               )}
+
+              {/* Step Progress Indicator */}
+              <div className="mt-4">
+                <div className="flex items-center justify-between text-xs text-lp-light/60 mb-2">
+                  <span>Progresso</span>
+                  <span>{isCompleted ? '100%' : isActive ? '50%' : '0%'}</span>
+                </div>
+                <div className="w-full h-2 bg-lp-gray/30 rounded-full overflow-hidden">
+                  <div 
+                    className={`h-full rounded-full transition-all duration-500 ${
+                      isCompleted ? 'bg-lp-green w-full' : isActive ? 'bg-lp-blue w-1/2' : 'w-0'
+                    }`}
+                  />
+                </div>
+              </div>
             </div>
           );
         })}
@@ -131,16 +145,30 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ steps, currentStep, completed
       {/* Completion Message */}
       {progressPercentage === 100 && (
         <div className="mt-12 text-center animate-fade-in-up">
-          <div className="glass-dark rounded-2xl p-8 max-w-2xl mx-auto">
-            <div className="w-16 h-16 gradient-secondary rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-glow">
-              <CheckCircle className="w-8 h-8 text-white" />
+          <div className="glass-dark rounded-2xl p-8 max-w-3xl mx-auto">
+            <div className="w-20 h-20 gradient-secondary rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+              <Star className="w-10 h-10 text-white" />
             </div>
-            <h3 className="text-2xl font-bold gradient-text-secondary mb-3">
+            <h3 className="text-3xl font-bold gradient-text-secondary mb-4">
               🎉 Parabéns! Todas as etapas concluídas!
             </h3>
-            <p className="text-lp-light/80">
+            <p className="text-lp-light/80 text-lg mb-6">
               Você está oficialmente pronto para começar a faturar como afiliado premium!
             </p>
+            <div className="flex items-center justify-center gap-6 text-sm text-lp-light/60">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-lp-green" />
+                <span>Sistema ativado</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-lp-green" />
+                <span>Material liberado</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-lp-green" />
+                <span>Suporte ativo</span>
+              </div>
+            </div>
           </div>
         </div>
       )}

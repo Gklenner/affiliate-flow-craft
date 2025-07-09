@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -36,6 +35,8 @@
     --lp-green: 142 71% 45%; /* #22C55E - Verde sucesso */
     --lp-gray: 220 13% 18%; /* #1E293B - Cinza moderno */
     --lp-light: 0 0% 98%; /* #FAFAFA - Branco suave */
+    --lp-cta: 25 100% 50%; /* #FF6F00 - CTA laranja */
+    --lp-success: 142 76% 36%; /* #28A745 - Verde sucesso */
   }
 
   * {
@@ -65,13 +66,18 @@
   .bg-lp-orange { background-color: hsl(var(--lp-orange)); }
   .bg-lp-green { background-color: hsl(var(--lp-green)); }
   .bg-lp-gray { background-color: hsl(var(--lp-gray)); }
+  .bg-lp-cta { background-color: hsl(var(--lp-cta)); }
+  .bg-lp-success { background-color: hsl(var(--lp-success)); }
   .text-lp-light { color: hsl(var(--lp-light)); }
   .text-lp-blue { color: hsl(var(--lp-blue)); }
   .text-lp-purple { color: hsl(var(--lp-purple)); }
   .text-lp-orange { color: hsl(var(--lp-orange)); }
   .text-lp-green { color: hsl(var(--lp-green)); }
+  .text-lp-cta { color: hsl(var(--lp-cta)); }
+  .text-lp-success { color: hsl(var(--lp-success)); }
   .border-lp-blue { border-color: hsl(var(--lp-blue)); }
   .border-lp-purple { border-color: hsl(var(--lp-purple)); }
+  .border-lp-green { border-color: hsl(var(--lp-green)); }
   
   /* Modern Gradients */
   .gradient-primary {
@@ -151,6 +157,10 @@
   
   .animate-slide-in-right {
     animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   /* Hover Effects */
@@ -239,6 +249,17 @@
   }
 }
 
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes pulseGlow {
   0%, 100% {
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
@@ -306,4 +327,28 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, hsl(var(--lp-purple)), hsl(var(--lp-blue)));
+}
+
+/* Loading States */
+.loading-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Improved Focus States */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-lp-blue focus:ring-offset-2 focus:ring-offset-lp-navy;
+}
+
+/* Better Mobile Touch Targets */
+@media (max-width: 768px) {
+  .btn-modern {
+    @apply min-h-[48px] px-6 py-3;
+  }
 }
