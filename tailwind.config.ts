@@ -91,6 +91,12 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
+			ringColor: {
+				'lp-blue': 'hsl(var(--lp-blue))'
+			},
+			ringOffsetColor: {
+				'lp-navy': 'hsl(var(--lp-navy))'
 			}
 		}
 	},
