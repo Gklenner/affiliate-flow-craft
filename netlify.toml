@@ -1,0 +1,127 @@
+# Configuração Netlify Otimizada para AffiliateFlow Pro
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Headers de Segurança e Performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Segurança
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    
+    # Performance
+    X-DNS-Prefetch-Control = "on"
+    
+    # Cache Control
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache específico para assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache para imagens
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache para fontes
+[[headers]]
+  for = "*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML sem cache (para atualizações)
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Redirects para SEO
+[[redirects]]
+  from = "/grip"
+  to = "https://grip.gaiodataos.com/?si=f722bc5f-c550-4368-a50f-d727e7abc368&ref=ia-empresas"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/app-android"
+  to = "https://play.google.com/store/apps/details?id=com.grip.ia"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/app-ios"
+  to = "https://apps.apple.com/app/grip-ia/id123456789"
+  status = 301
+  force = true
+
+# SPA fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Netlify Functions
+[functions]
+  directory = "netlify/functions"
+
+# Build plugins
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  
+  [plugins.inputs.thresholds]
+    performance = 0.9
+    accessibility = 0.9
+    best-practices = 0.9
+    seo = 0.9
+
+# Environment variables (exemplo)
+[context.production.environment]
+  NODE_ENV = "production"
+  VITE_GA_MEASUREMENT_ID = "G-XXXXXXXXXX"
+  VITE_FB_PIXEL_ID = "1234567890123456"
+  VITE_HOTJAR_ID = "1234567"
+
+[context.deploy-preview.environment]
+  NODE_ENV = "development"
+
+# Edge Functions (se necessário)
+[[edge_functions]]
+  function = "analytics"
+  path = "/api/analytics"
+
+# Prerender para SEO
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
